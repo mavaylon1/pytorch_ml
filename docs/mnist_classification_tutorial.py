@@ -34,8 +34,7 @@ train_dataloader = DataLoader(train_data, batch_size=32, shuffle=True)
 test_dataloader = DataLoader(test_data, batch_size=32, shuffle=True)
 
 # Define Device
-if torch.cuda.is_available():
-    device='cuda'
+device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
     
 # Define Model, loss, optimizer
 model = MNIST_CNN_classifier(n_classes=len(class_names))
